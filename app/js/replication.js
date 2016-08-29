@@ -59,6 +59,7 @@ function replicate(In,Out,sortFunction,inTypeRanks){
 	}
 
 	if(arrayCount===0){
+		console.log(In,Out);
 
 		Out.push(sortFunction(zip(In,dRanks)));
 
@@ -85,12 +86,23 @@ function replicate(In,Out,sortFunction,inTypeRanks){
 		}
 
 	}else{
+
 		///find shortest
-		Out[0]=[]
-		for(let i=0;i<shortest;i++){
-			// Out[i]=[];
-			let newIn=zip(In,dRanks,i)
-			replicate(newIn,Out[0],sortFunction,inTypeRanks);
+
+		if(dRanks[highest]<2){
+			// Out[0]=[];
+			for(let i=0;i<shortest;i++){
+				// Out[i]=[];
+				let newIn=zip(In,dRanks,i)
+				replicate(newIn,Out,sortFunction,inTypeRanks);
+			}
+		}else{
+			for(let i=0;i<shortest;i++){
+				Out[i]=[]
+				// Out[i]=[];
+				let newIn=zip(In,dRanks,i)
+				replicate(newIn,Out[i],sortFunction,inTypeRanks);
+			}
 		}
 
 	}
