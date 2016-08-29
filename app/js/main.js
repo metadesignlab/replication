@@ -33,7 +33,7 @@ function printResults(In,Out){
 	// console.log("Out is "+Out);
 	In=JSON.stringify(In);
 	In=In.substring(1,In.length-1);
-	console.log(In);
+
 	var OutText=JSON.stringify(Out);
 	OutText=OutText.substring(1,OutText.length-1);
 
@@ -59,8 +59,9 @@ function update(){
 		if(!currVal){
 			console.log("no value found for "+'input'+(i+1));
 		}else{
-		Inputs.push(JSON.parse("["+currVal+"]"));
+		Inputs.push(JSON.parse(currVal));
 		printInputs.push(currVal);
+
 		}
 	}
 
